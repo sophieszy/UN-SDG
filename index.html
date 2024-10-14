@@ -8,22 +8,29 @@
   <meta name="Description" content="Demonstration for UN-SDG">
 
   <style>
-    :root, html, body {
+    :root,
+    html,
+    body {
       margin: 0;
       padding: 0;
       background-color: var(--ddd-accent-1);
     }
+
     #demo {
       margin: var(--ddd-spacing-2);
     }
+
     UN-SDG {
       margin: var(--ddd-spacing-2);
       border: var(--ddd-border-md);
       border-radius: var(--ddd-radius-lg);
+
     }
+
     UN-SDG:hover {
       box-shadow: var(--ddd-boxShadow-sm);
     }
+
     #example {
       --UN-SDG-font-size: var(--ddd-font-size-l);
       background-color: var(--ddd-accent-2);
@@ -31,42 +38,89 @@
     }
   </style>
   <title>UN-SDG</title>
+  <script type="module" src="./src/UN-SDG.js"></script> <!-- allows me to use the un-sdg web component-->
+
 </head>
 
 <body>
   <div id="demo">
-    <h1>UN-SDG</h1>
-    <!-- this is going to do whatever the tag's defaults are -->
-    <h2>Default</h2>
-    <UN-SDG></UN-SDG>
-    <h2>Slot usage</h2>
-    <UN-SDG data-accent="2" data-primary="17"><div>Sample slot content</div></UN-SDG>
-    <h2>Property usage</h2>
-    <UN-SDG id="example" title="Sample property title"></UN-SDG>
+    <h1> UN Sustainability Images !</h1>
+    <img src="../lib/svgs/all.svg">
+    <img src="../lib/svgs/circle.png"> <!-- Refrencing these images to test and make show that I got them working -->
+    <h1> Randomizer time!</h1>
+    <button id="change-goal-button">Change Goal</button>
+    <div>
+      <un-sdg id="example"> </un-sdg>
+    </div>
+
+
+    <script>
+      const changeGoalButton = document.getElementById('change-goal-button');
+      const sdgElement = document.getElementById('example');
+
+      // Randomize a goal when the button is clicked
+      changeGoalButton.addEventListener('click', function () {
+        const randomGoal = Math.floor(Math.random() * 17) + 1; // Random number between 1 and 17
+        sdgElement.goal = randomGoal.toString(); // Set the goal on the UN-SDG component
+
+
+      });
+
+    </script>
+    <h1>Colors Only!</h1>
+    <un-sdg color-only> </un-sdg>
+    <!-- this tiggers the colorOnly boolean to become true, and therefore the function in render occurs-->
+
+    <un-sdg goal=1> </un-sdg>
+    <un-sdg goal=2> </un-sdg>
+    <un-sdg goal=3> </un-sdg>
+    <un-sdg goal=4> </un-sdg>
+    <un-sdg goal=5> </un-sdg>
+    <un-sdg goal=6> </un-sdg>
+    <un-sdg goal=7> </un-sdg>
+    <un-sdg goal=8> </un-sdg>
+    <un-sdg goal=9> </un-sdg>
+    <un-sdg goal=10> </un-sdg>
+    <un-sdg goal=11> </un-sdg>
+    <un-sdg goal=12> </un-sdg>
+    <un-sdg goal=13> </un-sdg>
+    <un-sdg goal=14> </un-sdg>
+    <un-sdg goal=15> </un-sdg>
+    <un-sdg goal=16> </un-sdg>
+    <un-sdg goal=17> </un-sdg>
+
+
+
+
+
   </div>
-  <script type="module" src="./src/UN-SDG.js"></script>
 
   <!-- Take HAX, the Web and you further down the rabbit hole -->
   <style>
     #follow-the-white-rabbit {
-      margin: var(--ddd-spacing-4) auto 64px  16px;
+      margin: var(--ddd-spacing-4) auto 64px 16px;
       background-color: var(--ddd-accent-4);
     }
+
     #follow-the-white-rabbit[open] summary {
       background-color: var(--ddd-accent-4) !important;
     }
+
     #follow-the-white-rabbit[open] .content {
       padding: 0 var(--ddd-spacing-4);
     }
+
     #follow-the-white-rabbit ul,
     #follow-the-white-rabbit li {
       padding: 0;
       margin: 0;
     }
+
     #follow-the-white-rabbit li {
       font-size: var(--ddd-font-size-xs);
       list-style: none;
     }
+
     #follow-the-white-rabbit li strong,
     #follow-the-white-rabbit li a {
       padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
@@ -74,6 +128,7 @@
       display: block;
       font-weight: bold;
     }
+
     #follow-the-white-rabbit li:focus-within a,
     #follow-the-white-rabbit li:hover a {
       background-color: black;
@@ -84,7 +139,7 @@
     <summary>How to Develop</summary>
     <div class="content">
       <p>
-      
+
       </p>
       <p>
         You can edit the current page by modifying <code>index.html</code><br />
@@ -96,13 +151,15 @@
         Below are links to help on your journey. Good luck, we need you!
       </p>
       <ul>
-        <li><a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/documentation/ddd" target="_blank">🧑‍🎨 Learn DDD HAX Design system</a></li>
+        <li><a href="https://oer.hax.psu.edu/bto108/sites/haxcellence/documentation/ddd" target="_blank">🧑‍🎨 Learn DDD
+            HAX Design system</a></li>
         <li><a href="https://lit.dev/playground/" target="_blank" rel="nofollow">🔥 Learn Lit</a></li>
         <li><a href="https://hax.psu.edu" target="_blank">🧙 HAX The Web @ Penn State</a></li>
       </ul>
       <h2>Join and Share HAX</h2>
       <ul>
-        <li><a href="https://github.com/haxtheweb/issues/issues" target="_blank" rel="nofollow">🔮 Ideas to HAX Harder, Better, Faster, Stronger</a></li>
+        <li><a href="https://github.com/haxtheweb/issues/issues" target="_blank" rel="nofollow">🔮 Ideas to HAX Harder,
+            Better, Faster, Stronger</a></li>
         <li><a href="https://bit.ly/hax-the-linkedin" target="_blank" rel="nofollow">👔 Share on LinkedIn</a></li>
         <li><a href="https://bit.ly/hax-the-x" target="_blank" rel="nofollow">🧵 Tweet on X</a></li>
         <li><a href="https://bit.ly/hax-discord" target="_blank" rel="nofollow">💬 Join Community</a></li>
@@ -113,16 +170,20 @@
         <li><a href="https://web.dev/learn/css/" target="_blank" rel="nofollow">🎨 Learn CSS</a></li>
         <li><a href="http://Javascript.info" target="_blank" rel="nofollow">💻 Learn JavaScript (JS)</a></li>
         <li><a href="https://gitimmersion.com" target="_blank" rel="nofollow">🦺 Learn Git / Github</a></li>
-        <li><a href="https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/" target="_blank" rel="nofollow">📦 Learn NPM</a></li>
+        <li><a href="https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/" target="_blank"
+            rel="nofollow">📦 Learn NPM</a></li>
         <li><a href="http://learnux.io" target="_blank" rel="nofollow">📐 Learn UX / UI development</a></li>
       </ul>
       <h2>Find purpose and inspiration</h2>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=eC7xzavzEKY" target="_blank" rel="nofollow">🐟 This is Water - David Foster Wallace</a></li>
-        <li><a href="https://www.youtube.com/watch?v=kYfNvmF0Bqw" target="_blank" rel="nofollow">🏗️ Secrets of Life - Steve Jobs</a></li>
+        <li><a href="https://www.youtube.com/watch?v=eC7xzavzEKY" target="_blank" rel="nofollow">🐟 This is Water -
+            David Foster Wallace</a></li>
+        <li><a href="https://www.youtube.com/watch?v=kYfNvmF0Bqw" target="_blank" rel="nofollow">🏗️ Secrets of Life -
+            Steve Jobs</a></li>
         <li><strong>💡 <em>Never. Stop. Innovating.</em></strong></li>
       </ul>
     </div>
   </details>
 </body>
+
 </html>
