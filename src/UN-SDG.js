@@ -34,7 +34,7 @@ export class UNSDG extends DDDSuper(LitElement) {
     this.label = ""; //used for alt text override
     this.colorOnly = false;
     this.fetchPriority = "low"; //resource can be loaded later
-    this.loading = "lazy"; // defer loading the resource until it is needed 
+    this.loading = 'lazy'; // defer loading the resource until it is needed 
     this.height = '254px';
     this.width = '245px';
   }
@@ -78,7 +78,7 @@ export class UNSDG extends DDDSuper(LitElement) {
 
        .colors-container {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping to the next line if necessary */
+    flex-wrap: wrap; /* allows wrapping to the next line if necessary */
     gap: 10px; /* Adds space between color boxes */
 } /* adds design elements to the container holding of all the colors */
 
@@ -131,7 +131,7 @@ export class UNSDG extends DDDSuper(LitElement) {
       return html`
           <div class="colors-container">
               ${goalData.map((goal) => html`  
-                  <div class="color-box" alt="Goal: ${goal.name}"  style="background-color: ${goal.color};">
+                  <div class="color-box" label="Goal: ${goal.name}"  style="background-color: ${goal.color};">
                   </div>
               `)} 
           </div> 
@@ -141,6 +141,7 @@ export class UNSDG extends DDDSuper(LitElement) {
           <img src="${this._currentSrc}" 
                alt="${this.label}" 
                fetchpriority="${this.fetchPriority}" 
+               loading="${this.loading}"
                style="height: ${this.height}; width: ${this.width};" />
       `;
     } //returns image with label and other attributes can be adjusted
@@ -149,7 +150,7 @@ export class UNSDG extends DDDSuper(LitElement) {
 
 
   static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url).href;
+    return new URL(`../lib/${this.tag}.haxProperties.json`, import.meta.url).href;
   }
 }
 
