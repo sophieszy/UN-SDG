@@ -3,7 +3,6 @@ import babel from '@rollup/plugin-babel';
 import { rollupPluginHTML as html } from '@web/rollup-plugin-html';
 import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 import esbuild from 'rollup-plugin-esbuild';
-import copy from 'rollup-plugin-copy';
 
 
 export default {
@@ -23,11 +22,6 @@ export default {
       minify: true,
     }),
     /** Resolve bare module imports */
-    copy({
-      targets: [
-        { src: 'lib/', dest: 'dist' }
-      ]
-    }),
     nodeResolve(),
     /** Minify JS, compile JS to a lower language target */
     esbuild({
